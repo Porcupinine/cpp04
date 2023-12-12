@@ -26,7 +26,7 @@ Dog::~Dog() {
 
 Dog::Dog(const Dog &cp) {
 	m_type = cp.m_type;
-	delete m_dogBrain;
+//	delete m_dogBrain;
 	m_dogBrain = new Brain(*cp.m_dogBrain);
 	std::cout<<"Dog copy constructor called\n";
 }

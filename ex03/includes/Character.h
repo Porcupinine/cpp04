@@ -8,7 +8,7 @@
 
 #include "ICharacter.h"
 
-class Character : ICharacter{
+class Character : public ICharacter{
 private:
 	std::string m_name;
 	AMateria* m_inventory[4]{};
@@ -18,7 +18,7 @@ public:
 	~Character();
 	Character(const Character& cp);
 	Character& operator=(const Character& cp);
-	std::string const & getName() const;
+	std::string const & getName() const override;
 	void equip(AMateria* m) override;
 	void unequip(int idx) override;
 	void use(int idx, ICharacter& target) override;

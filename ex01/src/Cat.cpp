@@ -26,7 +26,7 @@ Cat::~Cat() {
 
 Cat::Cat(Cat &cp) {
 	m_type = cp.m_type;
-	delete m_catBrain;
+//	delete m_catBrain;
 	m_catBrain =new Brain(*cp.m_catBrain);
 	std::cout<<"Cat copy constructor called\n";
 }

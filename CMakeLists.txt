@@ -33,17 +33,10 @@ add_executable(ex02
 
 add_executable(ex03
 		ex03/src/AMateria.cpp
-		ex03/includes/AMateria.h
 		ex03/src/Ice.cpp
-		ex03/includes/Ice.h
 		ex03/src/Cure.cpp
-		ex03/includes/Cure.h
 		ex03/src/ICharacter.cpp
-		ex03/includes/ICharacter.h
 		ex03/src/IMateriaSource.cpp
-		ex03/includes/IMateriaSource.h
 		ex03/src/main.cpp
 		ex03/src/Character.cpp
-		ex03/includes/Character.h
-		ex03/src/MateriaSource.cpp
-		ex03/includes/MateriaSource.h)
+		ex03/src/MateriaSource.cpp)

@@ -22,7 +22,7 @@ Cure::~Cure() {
 
 }
 
-Cure::Cure(const Cure &cp) {
+Cure::Cure(const Cure &cp) : AMateria(cp.m_type) {
 
 }
 

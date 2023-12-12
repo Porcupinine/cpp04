@@ -14,14 +14,15 @@
 #define CPP04_AMATERIA_H
 
 #include <string>
-#include "../includes/ICharacter.h"
+#include "ICharacter.h"
 
 class AMateria {
 	protected:
 		std::string m_type;
 
 	public:
-		AMateria(std::string const & type);
+		AMateria(std::string  type);
+		~AMateria() = default;
 		std::string const & getType() const; //Returns the materia type
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);

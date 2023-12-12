@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <utility>
+
 #include "../includes/AMateria.h"
 
-AMateria::AMateria(const std::string &type) : m_type(type) {
-
+AMateria::AMateria(std::string type) : m_type(std::move(type)) {
 }
 
 std::string const &AMateria::getType() const {

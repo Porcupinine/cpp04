@@ -13,7 +13,9 @@
 #ifndef CPP04_ICHARACTER_H
 #define CPP04_ICHARACTER_H
 
-#include "AMateria.h"
+#include <string>
+
+class AMateria;
 
 class ICharacter {
 	public:

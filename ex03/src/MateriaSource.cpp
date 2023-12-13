@@ -17,14 +17,16 @@ AMateria *MateriaSource::createMateria(const std::string &type) {
 		std::cout<<"Can't create more materias!\n";
 		return nullptr;
 	}
-	AMateria* new_materia;
+	AMateria new_materia;
 	if (type == "ice")
-		new_materia = new Ice();
+		new_materia = Ice();
 	if (type == "cure")
-		new_materia = new Cure();
+		new_materia = Cure();
 	for (int x = 0; x < 4; x++) {
 		if (m_materias[x] == nullptr) {
 			m_materias[x] = new_materia;
+			m_materias_slot++;
+			break;
 		}
 	}
 	return new_materia;

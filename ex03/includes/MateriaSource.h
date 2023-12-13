@@ -7,7 +7,7 @@
 
 #include "IMateriaSource.h"
 
-class MateriaSource {
+class MateriaSource : public IMateriaSource {
 public:
 	MateriaSource() = default;
 	~MateriaSource()= default;

@@ -14,8 +14,8 @@ private:
 	AMateria* m_inventory[4]{};
 	size_t m_inventory_slot{0};
 public:
-	Character(std::string name);
-	~Character();
+	explicit Character(std::string name);
+	~Character() override = default;
 	Character(const Character& cp);
 	Character& operator=(const Character& cp);
 	std::string const & getName() const override;

@@ -13,6 +13,7 @@
 #include <iostream>
 #include <utility>
 #include "../includes/Character.h"
+#include "../includes/AMateria.h"
 
 Character::Character(std::string name) : m_name(std::move(name)) {
 	//TODO initialize nulptr
@@ -48,6 +49,7 @@ void Character::equip(AMateria* m) {
 		if (x == nullptr) {
 			x = m;
 			m_inventory_slot++;
+			break;
 		}
 	}
 }

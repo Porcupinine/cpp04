@@ -18,8 +18,8 @@
 class Ice : public AMateria {
 public:
 	Ice();
-	~Ice() = default;
-	Ice(const Ice &cp) = default;
+	~Ice();
+	Ice(const Ice &cp);
 	Ice &operator=(const Ice &cp) = default;
 	AMateria *clone() const override;
 	void use(ICharacter &target) override;

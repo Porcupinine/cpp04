@@ -19,7 +19,7 @@ Cure::Cure() : AMateria("cure"){
 }
 
 Cure::~Cure() {
-
+	delete this;
 }
 
 Cure::Cure(const Cure &cp) : AMateria(cp.m_type) {

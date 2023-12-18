@@ -13,6 +13,8 @@ private:
 	std::string m_name;
 	AMateria* m_inventory[4]{};
 	size_t m_inventory_slot{0};
+	static AMateria* m_floor[1000]{};
+	static size_t m_floor_slot;
 public:
 	explicit Character(std::string name);
 	~Character() override = default;

@@ -54,7 +54,8 @@ void Character::equip(AMateria* m) {
 	}
 }
 
-void Character::unequip(int idx){
+void Character::unequip(int idx) {
+	m_floor[m_floor_slot] = m_inventory[idx];
 	m_inventory[idx] = nullptr;
 	//TODO how to deal with item being droped?
 }

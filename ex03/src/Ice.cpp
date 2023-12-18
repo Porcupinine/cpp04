@@ -23,3 +23,10 @@ void Ice::use(ICharacter &target) {
 AMateria *Ice::clone() const {
 	return nullptr;
 }
+
+Ice::Ice(const Ice &cp) : AMateria(cp.m_type){
+}
+
+Ice::~Ice() {
+	delete this;
+}

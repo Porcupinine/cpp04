@@ -39,4 +39,6 @@ add_executable(ex03
 		ex03/src/IMateriaSource.cpp
 		ex03/src/main.cpp
 		ex03/src/Character.cpp
-		ex03/src/MateriaSource.cpp)
+		ex03/src/MateriaSource.cpp
+		ex03/src/Floor.cpp
+		ex03/includes/Floor.h)

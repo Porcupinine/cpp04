@@ -17,23 +17,34 @@
 #include "../includes/Cure.h"
 #include "../includes/MateriaSource.h"
 #include "../includes/Character.h"
+#include "../includes/Floor.h"
 
 int main()
 {
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
+	ICharacter* cloud = new Character("Cloud");
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
-	me->equip(tmp);
+	cloud->equip(tmp);
 	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
-	delete bob;
-	delete me;
+	cloud->equip(tmp);
+	tmp = src->createMateria("ice");
+	cloud->equip(tmp);
+	tmp = src->createMateria("cure");
+	cloud->equip(tmp);
+	tmp = src->createMateria("ice");
+	cloud->equip(tmp);
+	cloud->unequip(2);
+	tmp = src->createMateria("cure");
+	cloud->equip(tmp);
+	cloud->drop(0);
+	ICharacter* Sephiroth = new Character("Sephiroth");
+	cloud->use(0, *Sephiroth);
+	cloud->use(1, *Sephiroth);
+	delete Sephiroth;
+	delete cloud;
 	delete src;
 	return 0;
 }

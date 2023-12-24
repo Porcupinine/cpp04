@@ -1,6 +1,14 @@
-//
-// Created by laura on 8-12-23.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   MateriaSource.h                                    :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: laura <laura@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/12/21 19:16:19 by laura         #+#    #+#                 */
+/*   Updated: 2023/12/21 19:16:19 by laura         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef CPP04_MATERIASOURCE_H
 #define CPP04_MATERIASOURCE_H
@@ -9,14 +17,14 @@
 
 class MateriaSource : public IMateriaSource {
 public:
-	MateriaSource() = default;
-	~MateriaSource()= default;
+	MateriaSource();
+	~MateriaSource() override;
 	MateriaSource(const MateriaSource& cp) = default;
 	MateriaSource& operator=(const MateriaSource& cp) = default;
 	virtual void learnMateria(AMateria*);
 	virtual AMateria* createMateria(std::string const & type);
 private:
-	AMateria* m_materias[4]{};
+	AMateria** m_materias;
 	size_t m_materias_slot{0};
 };
 

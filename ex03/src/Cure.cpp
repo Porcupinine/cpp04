@@ -19,7 +19,6 @@ Cure::Cure() : AMateria("cure"){
 }
 
 Cure::~Cure() {
-	delete this;
 }
 
 Cure::Cure(const Cure &cp) : AMateria(cp.m_type) {
@@ -31,7 +30,8 @@ Cure &Cure::operator=(const Cure &cp) {
 }
 
 AMateria *Cure::clone() const {
-	return nullptr;
+	Cure *newCure = new Cure(*this);
+	return newCure;
 }
 
 void Cure::use(ICharacter &target) {

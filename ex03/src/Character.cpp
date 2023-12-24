@@ -16,24 +16,33 @@
 #include "../includes/AMateria.h"
 
 Character::Character(std::string name) : m_name(std::move(name)) {
-	//TODO initialize nulptr
+}
+
+
+Character::~Character() {
+	for (int x = 0; x < 4; x++) {
+		delete m_equiped[x];
+	}
+	for (int x = 0; x < 10; x++) {
+		delete m_inventory[x];
+	}
 }
 
 Character &Character::operator=(const Character &cp) {
 	m_name = cp.m_name;
 	for (int x = 0; x < 4; x++) {
-		m_inventory[x] = cp.m_inventory[x];
+		m_equiped[x] = cp.m_equiped[x];
 	}
-	m_inventory_slot = cp.m_inventory_slot;
+	m_equipedSlot = cp.m_equipedSlot;
 	return *this;
 }
 
 Character::Character(const Character &cp) {
 	m_name = cp.m_name;
 	for (int x = 0; x < 4; x++) {
-		m_inventory[x] = cp.m_inventory[x];
+		m_equiped[x] = cp.m_equiped[x];
 	}
-	m_inventory_slot = cp.m_inventory_slot;
+	m_equipedSlot = cp.m_equipedSlot;
 }
 
 std::string const &Character::getName() const {
@@ -41,27 +50,40 @@ std::string const &Character::getName() const {
 }
 
 void Character::equip(AMateria* m) {
-	if(m_inventory_slot == 4) {
-		std::cout<<"Inventory is full\n";
+	if(m_equipedSlot == 4) {
+		std::cout<<"Unequip something and try again\n";
 		return;
 	}
-	for (auto & x : m_inventory) {
-		if (x == nullptr) {
-			x = m;
-			m_inventory_slot++;
+	for (int x = 0; x < 4; x++) {
+		if (m_equiped[x] == nullptr) {
+			m_equiped[x] = m;
+			m_equipedSlot++;
+			std::cout<<m->getType()<<" equipped on slot: "<<x<<"\n";
 			break;
 		}
 	}
 }
 
 void Character::unequip(int idx) {
-	m_floor[m_floor_slot] = m_inventory[idx];
-	m_inventory[idx] = nullptr;
-	//TODO how to deal with item being droped?
+	if (m_inventorySlot == 10) {
+		std::cout<<"Inventory is full!\n";
+		return;
+	}
+	std::cout<<"slot " <<idx<<" is now empty\n";
+	m_inventory[m_inventorySlot] = m_equiped[idx];
+	m_equiped[idx] = nullptr;
+	m_inventorySlot++;
+	m_equipedSlot--;
 }
 
 void Character::use(int idx, ICharacter& target) {
-	m_inventory[idx]->use(target);
-	m_inventory[idx] = nullptr;
-	//TODO using message + deletion of the materia
+	m_equiped[idx]->use(target);
 }
+
+void Character::drop(int idx) {
+	std::cout<<m_name<<" droped "<<m_inventory[idx]->getType()<<"\n";
+	Floor::getFloor().addToFloor(m_inventory[idx]);
+	m_inventory[idx] = nullptr;
+}
+
+

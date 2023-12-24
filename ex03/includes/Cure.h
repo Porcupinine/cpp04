@@ -22,7 +22,7 @@ public:
 	~Cure();
 	Cure(const Cure& cp);
 	Cure& operator=(const Cure& cp);
-	virtual AMateria* clone() const override;
+	AMateria* clone() const override;
 	void use(ICharacter &target) override;
 };
 

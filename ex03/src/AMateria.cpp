@@ -24,3 +24,11 @@ std::string const &AMateria::getType() const {
 void AMateria::use(ICharacter &target) {
 
 }
+
+AMateria::AMateria(const AMateria &cp) : m_type(cp.m_type) {
+}
+
+AMateria &AMateria::operator=(const AMateria &cp) {
+	m_type = cp.m_type;
+	return *this;
+}

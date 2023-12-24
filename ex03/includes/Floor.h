@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Ice.cpp                                            :+:    :+:            */
+/*   Floor.h                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/12/08 22:08:47 by laura         #+#    #+#                 */
-/*   Updated: 2023/12/08 22:08:47 by laura         ########   odam.nl         */
+/*   Created: 2023/12/21 19:37:35 by laura         #+#    #+#                 */
+/*   Updated: 2023/12/21 19:37:35 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "../includes/Ice.h"
+#ifndef CPP04_FLOOR_H
+#define CPP04_FLOOR_H
 
-Ice::Ice() : AMateria("ice") {}
+#include "AMateria.h"
 
-void Ice::use(ICharacter &target) {
-	std::cout<<"* shoots an ice bolt at "<<target.getName()<<" *\n";
-}
+class Floor {
+public:
+	~Floor();
+	void addToFloor(AMateria* newMateria);
+	void cleanFloor();
+	void moreFloor();
+	static Floor& getFloor();
+private:
+	Floor();
+	AMateria**	m_inventory;
+	size_t		m_inventorySize;
+	size_t		m_inventoryCapacity;
+};
 
-AMateria *Ice::clone() const {
-	Ice* newIce = new Ice(*this);
-	return newIce;
-}
 
-Ice::Ice(const Ice &cp) : AMateria(cp.m_type){
-}
-
-Ice::~Ice() {
-}
+#endif //CPP04_FLOOR_H

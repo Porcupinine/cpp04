@@ -62,8 +62,6 @@ void Character::equip(AMateria* m) {
 			break;
 		}
 	}
-}
-
 void Character::unequip(int idx) {
 	if (m_inventorySlot == 10) {
 		std::cout<<"Inventory is full!\n";

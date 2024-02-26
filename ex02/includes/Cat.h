@@ -21,11 +21,11 @@ class Cat : public Animal {
 		Brain* m_catBrain;
 	public:
 		Cat();
-		~Cat();
-		Cat(Cat& cp);
+		~Cat() override;
+		Cat(const Cat& cp);
 		Cat& operator=(const Cat& cp);
-		void makeSound() const;
-		std::string brainyMessage(int n) const;
+		void makeSound() const override;
+		std::string brainyMessage(int n) const override;
 };
 
 

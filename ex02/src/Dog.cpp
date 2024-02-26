@@ -24,7 +24,7 @@ Dog::~Dog() {
 	std::cout<<"Dog destructor called\n";
 }
 
-Dog::Dog(const Dog &cp) {
+Dog::Dog(const Dog &cp) : Animal(cp){
 	m_type = cp.m_type;
 //	delete m_dogBrain;
 	m_dogBrain = new Brain(*cp.m_dogBrain);

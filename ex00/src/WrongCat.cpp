@@ -23,11 +23,15 @@ WrongCat::~WrongCat() {
 	std::cout<<"WrongCat destructor called\n";
 }
 
-WrongCat::WrongCat(WrongCat &cp) {
+WrongCat::WrongCat(const WrongCat &cp) : WrongAnimal(cp) {
+	m_type = cp.m_type;
 	std::cout<<"WrongCat copy constructor called\n";
 }
 
 WrongCat &WrongCat::operator=(const WrongCat &cp) {
 	std::cout<<"WrongCat = operator called\n";
+	if (this != &cp) {
+		WrongAnimal::operator=(cp);
+	}
 	return *this;
 }

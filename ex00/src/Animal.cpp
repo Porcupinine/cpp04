@@ -20,19 +20,22 @@ Animal::~Animal() {
 	std::cout<<"Animal destructor called\n";
 }
 
-Animal::Animal(Animal &cp) {
+Animal::Animal(const Animal &cp) : m_type(cp.m_type) {
 	std::cout<<"Animal coppy constructor called\n";
 }
 
 Animal &Animal::operator=(const Animal &cp) {
 	std::cout<<"Animal = operator called\n";
+	if (this != &cp) {
+		m_type = cp.m_type;
+	}
 	return *this;
 }
 
-void Animal::makeSound() const{
+void Animal::makeSound() const {
 	std::cout<<"...\n";
 }
 
-std::string Animal::getType() const{
+std::string Animal::getType() const {
 	return m_type;
 }

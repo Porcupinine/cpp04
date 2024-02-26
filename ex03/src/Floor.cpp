@@ -24,7 +24,7 @@ Floor::Floor() : m_inventory (new AMateria*[10]{}), m_inventorySize(0), m_invent
 void Floor::moreFloor() {
 	auto** newInventory = new AMateria*[m_inventoryCapacity*2]{};
 	auto** tmpInventory = m_inventory;
-	for(int it = 0; it < m_inventoryCapacity; it++) {
+	for(size_t it = 0; it < m_inventoryCapacity; it++) {
 		newInventory[it] = m_inventory[it];
 	}
 	m_inventory = newInventory;
@@ -41,7 +41,7 @@ void Floor::addToFloor(AMateria *newMateria) {
 }
 
 Floor::~Floor() {
-	for(int it = 0; it < m_inventoryCapacity; it++) {
+	for(size_t it = 0; it < m_inventoryCapacity; it++) {
 		delete m_inventory[it];
 	}
 	delete [] m_inventory;

@@ -21,7 +21,7 @@ class WrongAnimal {
 	public:
 		WrongAnimal();
 		virtual ~WrongAnimal();
-		WrongAnimal (WrongAnimal& cp);
+		WrongAnimal (const WrongAnimal& cp);
 		WrongAnimal& operator=(const WrongAnimal& cp);
 		virtual void makeSound() const;
 		std::string getType() const;

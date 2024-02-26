@@ -20,7 +20,7 @@ public:
 	std::string m_ideas[100];
 	Brain();
 	~Brain();
-	Brain(Brain& cp);
+	Brain(const Brain& cp);
 	Brain& operator=(const Brain& cp);
 };
 

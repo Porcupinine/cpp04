@@ -24,7 +24,7 @@ Cat::~Cat() {
 	std::cout<<"Cat destructor called\n";
 }
 
-Cat::Cat(Cat &cp) {
+Cat::Cat(const Cat &cp) : Animal(cp){
 	m_type = cp.m_type;
 //	delete m_catBrain;
 	m_catBrain =new Brain(*cp.m_catBrain);

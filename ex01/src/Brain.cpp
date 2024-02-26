@@ -21,11 +21,19 @@ Brain::~Brain() {
 	std::cout<<"Brain destructor called\n";
 }
 
-Brain::Brain(Brain &cp) {
+Brain::Brain(const Brain &cp) {
 	std::cout<<"Brain copy constructor called\n";
+	for (int x = 0; x < 100; x++) {
+		m_ideas[x] = cp.m_ideas[x];
+	}
 }
 
 Brain &Brain::operator=(const Brain &cp) {
 	std::cout<<"Brain copy operator called\n";
+	if (this != &cp) {
+		for (int x = 0; x < 100; x++) {
+			m_ideas[x] = cp.m_ideas[x];
+		}
+	}
 	return *this;
 }

@@ -19,9 +19,9 @@
 class Cure : public AMateria {
 public:
 	Cure();
-	~Cure();
+	~Cure() override = default;
 	Cure(const Cure& cp);
-	Cure& operator=(const Cure& cp);
+	Cure& operator=(const Cure& cp) = default;
 	AMateria* clone() const override;
 	void use(ICharacter &target) override;
 };

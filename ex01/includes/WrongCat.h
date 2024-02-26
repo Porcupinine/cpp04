@@ -17,8 +17,8 @@
 class WrongCat : public WrongAnimal{
 	public:
 		WrongCat();
-		~WrongCat();
-		WrongCat(WrongCat& cp);
+		~WrongCat() override;
+		WrongCat(const WrongCat& cp);
 		WrongCat& operator=(const WrongCat& cp);
 };
 

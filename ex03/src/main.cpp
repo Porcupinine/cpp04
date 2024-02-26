@@ -36,6 +36,7 @@ int main()
 	cloud->equip(tmp);
 	tmp = src->createMateria("ice");
 	cloud->equip(tmp);
+
 	cloud->unequip(2);
 	tmp = src->createMateria("cure");
 	cloud->equip(tmp);

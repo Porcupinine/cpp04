@@ -21,12 +21,15 @@ WrongAnimal::~WrongAnimal() {
 	std::cout<<"WrongAnimal destructor called\n";
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal &cp) {
+WrongAnimal::WrongAnimal(const WrongAnimal &cp) : m_type(cp.m_type) {
 	std::cout<<"WrongAnimal coppy constructor called\n";
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &cp) {
 	std::cout<<"WrongAnimal = operator called\n";
+	if(this != &cp) {
+		m_type = cp.m_type;
+	}
 	return *this;
 }
 

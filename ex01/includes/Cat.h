@@ -21,10 +21,10 @@ class Cat : public Animal {
 		Brain* m_catBrain;
 	public:
 		Cat();
-		~Cat();
-		Cat(Cat& cp);
+		~Cat() override;
+		Cat(const Cat& cp);
 		Cat& operator=(const Cat& cp);
-		void makeSound() const;
+		void makeSound() const override;
 };
 
 

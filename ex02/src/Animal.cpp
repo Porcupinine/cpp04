@@ -20,14 +20,16 @@ Animal::~Animal() {
 	std::cout<<"Animal destructor called\n";
 }
 
-Animal::Animal(Animal &cp) {
+Animal::Animal(const Animal &cp) {
 	m_type = cp.m_type;
 	std::cout<<"Animal copy constructor called\n";
 }
 
 Animal &Animal::operator=(const Animal &cp) {
-	m_type = cp.m_type;
 	std::cout<<"Animal copy operator called\n";
+	if (this != &cp) {
+		m_type = cp.m_type;
+	}
 	return *this;
 }
 

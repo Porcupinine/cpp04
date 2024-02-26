@@ -18,7 +18,7 @@ class WrongCat : public WrongAnimal{
 	public:
 		WrongCat();
 		~WrongCat();
-		WrongCat(WrongCat& cp);
+		WrongCat(const WrongCat& cp);
 		WrongCat& operator=(const WrongCat& cp);
 };
 

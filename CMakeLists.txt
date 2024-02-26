@@ -35,8 +35,6 @@ add_executable(ex03
 		ex03/src/AMateria.cpp
 		ex03/src/Ice.cpp
 		ex03/src/Cure.cpp
-		ex03/src/ICharacter.cpp
-		ex03/src/IMateriaSource.cpp
 		ex03/src/main.cpp
 		ex03/src/Character.cpp
 		ex03/src/MateriaSource.cpp

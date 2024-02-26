@@ -21,10 +21,6 @@ std::string const &AMateria::getType() const {
 	return m_type;
 }
 
-void AMateria::use(ICharacter &target) {
-
-}
-
 AMateria::AMateria(const AMateria &cp) : m_type(cp.m_type) {
 }
 

@@ -19,7 +19,6 @@ class Floor {
 public:
 	~Floor();
 	void addToFloor(AMateria* newMateria);
-	void cleanFloor();
 	void moreFloor();
 	static Floor& getFloor();
 private:

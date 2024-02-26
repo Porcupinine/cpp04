@@ -18,53 +18,64 @@
 Character::Character(std::string name) : m_name(std::move(name)) {
 }
 
-
 Character::~Character() {
-	for (int x = 0; x < 4; x++) {
-		delete m_equiped[x];
+	for (auto x : m_equiped) {
+		delete x;
 	}
-	for (int x = 0; x < 10; x++) {
-		delete m_inventory[x];
+	for (auto x : m_inventory) {
+		delete x;
 	}
 }
 
 Character &Character::operator=(const Character &cp) {
 	m_name = cp.m_name;
-	for (int x = 0; x < 4; x++) {
+	for (size_t x = 0; x < k_equipedSize; ++x) {
 		m_equiped[x] = cp.m_equiped[x];
 	}
 	m_equipedSlot = cp.m_equipedSlot;
 	return *this;
 }
+//TODO copy inventory
 
 Character::Character(const Character &cp) {
 	m_name = cp.m_name;
-	for (int x = 0; x < 4; x++) {
+	for (size_t x = 0; x < k_equipedSize; ++x) {
 		m_equiped[x] = cp.m_equiped[x];
 	}
 	m_equipedSlot = cp.m_equipedSlot;
 }
 
 std::string const &Character::getName() const {
-	return this->m_name;
+	return m_name;
+}
+
+void Character::addToInventory(AMateria *m) {
+	std::cout << m->getType() << " is now on the inventory\n";
+	m_inventory[m_inventorySlot] = m;
+	m_inventorySlot++;
+	m_equipedSlot--;
 }
 
 void Character::equip(AMateria* m) {
-	if(m_equipedSlot == 4) {
-		std::cout<<"Unequip something and try again\n";
+	if (m_equipedSlot == k_equipedSize) {
+		std::cout << "Unequip something and try again\n";
+		addToInventory(m);
 		return;
 	}
-	for (int x = 0; x < 4; x++) {
+	for (size_t x = 0; x < k_equipedSize; ++x) {
 		if (m_equiped[x] == nullptr) {
 			m_equiped[x] = m;
 			m_equipedSlot++;
-			std::cout<<m->getType()<<" equipped on slot: "<<x<<"\n";
+			std::cout << m->getType() << " equipped on slot: " << x << "\n";
 			break;
 		}
 	}
+}
+
 void Character::unequip(int idx) {
-	if (m_inventorySlot == 10) {
+	if (m_inventorySlot == k_inventorySize) {
 		std::cout<<"Inventory is full!\n";
+		drop(idx);
 		return;
 	}
 	std::cout<<"slot " <<idx<<" is now empty\n";
@@ -83,5 +94,3 @@ void Character::drop(int idx) {
 	Floor::getFloor().addToFloor(m_inventory[idx]);
 	m_inventory[idx] = nullptr;
 }
-
-

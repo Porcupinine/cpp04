@@ -14,19 +14,11 @@
 #include "../includes/Cure.h"
 
 
-Cure::Cure() : AMateria("cure"){
-
-}
-
-Cure::~Cure() {
+Cure::Cure() : AMateria("cure") {
 }
 
 Cure::Cure(const Cure &cp) : AMateria(cp.m_type) {
 
-}
-
-Cure &Cure::operator=(const Cure &cp) {
-	return *this;
 }
 
 AMateria *Cure::clone() const {

@@ -21,8 +21,8 @@ public:
 	~MateriaSource() override;
 	MateriaSource(const MateriaSource& cp) = default;
 	MateriaSource& operator=(const MateriaSource& cp) = default;
-	virtual void learnMateria(AMateria*);
-	virtual AMateria* createMateria(std::string const & type);
+	void learnMateria(AMateria*) override;
+	AMateria* createMateria(std::string const & type) override;
 private:
 	AMateria** m_materias;
 	size_t m_materias_slot{0};

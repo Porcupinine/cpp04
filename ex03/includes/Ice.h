@@ -18,7 +18,7 @@
 class Ice : public AMateria {
 public:
 	Ice();
-	~Ice();
+	~Ice() override = default;
 	Ice(const Ice &cp);
 	Ice &operator=(const Ice &cp) = default;
 	AMateria *clone() const override;

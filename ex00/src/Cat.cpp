@@ -21,12 +21,16 @@ Cat::~Cat() {
 	std::cout<<"Cat destructor called\n";
 }
 
-Cat::Cat(Cat &cp) {
+Cat::Cat(const Cat &cp) : Animal(cp) {
+	m_type = cp.m_type;
 	std::cout<<"Cat copy constructor called\n";
 }
 
 Cat &Cat::operator=(const Cat &cp) {
 	std::cout<<"Cat = operator called\n";
+	if (this != &cp) {
+		Animal::operator=(cp);
+	}
 	return *this;
 }
 

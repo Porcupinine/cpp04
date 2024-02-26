@@ -19,14 +19,15 @@
 void MateriaSource::learnMateria(AMateria * m) {
 	if (m_materias_slot == 3) {
 		std::cout << "Can't create more materias!\n";
-	} else
-		for (int x = 0; x < 3; x++) {
-			if (m_materias[x] == nullptr) {
-				m_materias[x] = m;
-				m_materias_slot++;
-				break;
-			}
+		return;
+	}
+	for (int x = 0; x < 3; x++) {
+		if (m_materias[x] == nullptr) {
+			m_materias[x] = m;
+			m_materias_slot++;
+			break;
 		}
+	}
 }
 
 AMateria *MateriaSource::createMateria(const std::string &type) {

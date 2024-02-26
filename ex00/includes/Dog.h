@@ -18,10 +18,10 @@
 class Dog : public Animal {
 	public:
 		Dog();
-		~Dog();
-		Dog(Dog& cp);
+		~Dog() override;
+		Dog(const Dog& cp);
 		Dog& operator=(const Dog& cp);
-		void makeSound() const;
+		void makeSound() const override;
 };
 
 

@@ -21,13 +21,13 @@ class AMateria {
 		std::string m_type;
 
 	public:
-		AMateria(std::string  type);
+		explicit AMateria(std::string  type);
 		virtual ~AMateria() = default;
 		AMateria (const AMateria &cp);
 		AMateria& operator=(const AMateria &cp);
 		std::string const & getType() const;
 		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
+		virtual void use(ICharacter& target) = 0;
 };
 
 

@@ -18,10 +18,10 @@
 class Cat : public Animal {
 	public:
 		Cat();
-		~Cat();
-		Cat(Cat& cp);
+		~Cat() override;
+		Cat(const Cat& cp);
 		Cat& operator=(const Cat& cp);
-		void makeSound() const;
+		void makeSound() const override;
 };
 
 

@@ -19,14 +19,15 @@
 
 class Character : public ICharacter{
 private:
+	static const size_t k_equipedSize = 4;
+	static const size_t k_inventorySize = 10;
 	std::string m_name;
-	AMateria* m_equiped[4]{};
+	AMateria* m_equiped[k_equipedSize]{};
 	size_t m_equipedSlot{0};
-	AMateria* m_inventory[10]{};
+	AMateria* m_inventory[k_inventorySize]{};
 	size_t m_inventorySlot{0};
 public:
 	explicit Character(std::string name);
-	Character(std::string name, Floor* ground);
 	~Character() override;
 	Character(const Character& cp);
 	Character& operator=(const Character& cp);
@@ -35,6 +36,7 @@ public:
 	void unequip(int idx) override;
 	void use(int idx, ICharacter& target) override;
 	void drop(int idx) override;
+	void addToInventory(AMateria *m);
 };
 
 

@@ -26,6 +26,3 @@ AMateria *Ice::clone() const {
 
 Ice::Ice(const Ice &cp) : AMateria(cp.m_type){
 }
-
-Ice::~Ice() {
-}

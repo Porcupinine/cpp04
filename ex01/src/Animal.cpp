@@ -20,7 +20,7 @@ Animal::~Animal() {
 	std::cout<<"Animal destructor called\n";
 }
 
-Animal::Animal(Animal &cp) {
+Animal::Animal(const Animal &cp) {
 	m_type = cp.m_type;
 	std::cout<<"Animal copy constructor called\n";
 }

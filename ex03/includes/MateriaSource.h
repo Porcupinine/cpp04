@@ -17,15 +17,16 @@
 
 class MateriaSource : public IMateriaSource {
 public:
-	MateriaSource();
+	MateriaSource() = default;
 	~MateriaSource() override;
 	MateriaSource(const MateriaSource& cp) = default;
 	MateriaSource& operator=(const MateriaSource& cp) = default;
 	void learnMateria(AMateria*) override;
 	AMateria* createMateria(std::string const & type) override;
 private:
-	AMateria** m_materias;
-	size_t m_materias_slot{0};
+	static const size_t k_materiasSize = 4;
+	AMateria* m_materias[k_materiasSize]{};
+	size_t m_materiasSlot{0};
 };
 
 

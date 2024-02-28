@@ -60,6 +60,5 @@ int main()
 		b.makeSound();
 		c.makeSound();
 	}
-	//TODO why can't delete a?
 	return 0;
 }

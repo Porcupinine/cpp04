@@ -54,21 +54,21 @@ int main()
 	std::cout<<"\n\n";
 	{
 		std::cout<<"--------TEST 3--------------\n";
-		Dog a;
-		Dog b(a);
+		Dog *a = new Dog();
+		Dog b(*a);
 		Dog c;
-		c = a;
-		std::cout<<a.getType()<<"\n";
+		c = *a;
+		std::cout<<a->getType()<<"\n";
 		std::cout<<b.getType()<<"\n";
 		std::cout<<c.getType()<<"\n";
-		a.makeSound();
+		a->makeSound();
 		b.makeSound();
 		c.makeSound();
+		delete a;
 		for(int x = 0; x<100;x++) {
-			std::cout<<a.brainyMessage(x);
+			std::cout<<b.brainyMessage(x);
 		}
 		std::cout<<"\n";
 	}
-	//TODO why can't delete a?
 	return 0;
 }

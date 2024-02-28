@@ -25,8 +25,9 @@ int main()
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	ICharacter* cloud = new Character("Cloud");
+	ICharacter* Sephiroth = new Character("Sephiroth");
 	AMateria* tmp;
-	tmp = src->createMateria("ice");
+	tmp = src->createMateria("hey");
 	cloud->equip(tmp);
 	tmp = src->createMateria("cure");
 	cloud->equip(tmp);
@@ -36,14 +37,15 @@ int main()
 	cloud->equip(tmp);
 	tmp = src->createMateria("ice");
 	cloud->equip(tmp);
-
+	tmp = src->createMateria("cure");
+	cloud->equip(tmp);
+	Sephiroth->equip(tmp);
 	cloud->unequip(2);
 	tmp = src->createMateria("cure");
 	cloud->equip(tmp);
 	cloud->drop(0);
-	ICharacter* Sephiroth = new Character("Sephiroth");
-	cloud->use(0, *Sephiroth);
 	cloud->use(1, *Sephiroth);
+	Sephiroth->use(0, *Sephiroth);
 	delete Sephiroth;
 	delete cloud;
 	delete src;

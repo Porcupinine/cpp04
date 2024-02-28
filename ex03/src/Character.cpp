@@ -35,7 +35,7 @@ Character &Character::operator=(const Character &cp) {
 	m_equipedSlot = cp.m_equipedSlot;
 	return *this;
 }
-//TODO copy inventory
+//TODO deep copy
 
 Character::Character(const Character &cp) {
 	m_name = cp.m_name;
@@ -57,6 +57,11 @@ void Character::addToInventory(AMateria *m) {
 }
 
 void Character::equip(AMateria* m) {
+	if (m == nullptr)
+	{
+		std::cout<<"nothing to be equiped\n";
+		return;
+	}
 	if (m_equipedSlot == k_equipedSize) {
 		std::cout << "Unequip something and try again\n";
 		addToInventory(m);
@@ -86,6 +91,7 @@ void Character::unequip(int idx) {
 }
 
 void Character::use(int idx, ICharacter& target) {
+	std::cout<<m_name<<" ";
 	m_equiped[idx]->use(target);
 }
 

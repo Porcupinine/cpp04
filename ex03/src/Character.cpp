@@ -30,19 +30,30 @@ Character::~Character() {
 Character &Character::operator=(const Character &cp) {
 	m_name = cp.m_name;
 	for (size_t x = 0; x < k_equipedSize; ++x) {
-		m_equiped[x] = cp.m_equiped[x];
+		if(m_equiped[x] != nullptr)
+			m_equiped[x] = cp.m_equiped[x]->clone();
 	}
 	m_equipedSlot = cp.m_equipedSlot;
+	for (size_t x = 0; x < k_inventorySize; ++x) {
+		if(m_inventory[x] != nullptr)
+			m_inventory[x] = cp.m_inventory[x]->clone();
+	}
+	m_inventorySlot = cp.m_inventorySlot;
 	return *this;
 }
-//TODO deep copy
 
 Character::Character(const Character &cp) {
 	m_name = cp.m_name;
 	for (size_t x = 0; x < k_equipedSize; ++x) {
-		m_equiped[x] = cp.m_equiped[x];
+		if(m_equiped[x] != nullptr)
+			m_equiped[x] = cp.m_equiped[x]->clone();
 	}
 	m_equipedSlot = cp.m_equipedSlot;
+	for (size_t x = 0; x < k_inventorySize; ++x) {
+		if(m_inventory[x] != nullptr)
+			m_inventory[x] = cp.m_inventory[x]->clone();
+	}
+	m_inventorySlot = cp.m_inventorySlot;
 }
 
 std::string const &Character::getName() const {
@@ -51,7 +62,7 @@ std::string const &Character::getName() const {
 
 void Character::addToInventory(AMateria *m) {
 	std::cout << m->getType() << " is now on the inventory\n";
-	m_inventory[m_inventorySlot] = m;
+	m_inventory[m_inventorySlot] = m->clone();
 	m_inventorySlot++;
 	m_equipedSlot--;
 }

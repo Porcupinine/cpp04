@@ -19,8 +19,8 @@ class MateriaSource : public IMateriaSource {
 public:
 	MateriaSource() = default;
 	~MateriaSource() override;
-	MateriaSource(const MateriaSource& cp) = default;
-	MateriaSource& operator=(const MateriaSource& cp) = default;
+	MateriaSource(const MateriaSource& cp);
+	MateriaSource& operator=(const MateriaSource& cp);
 	void learnMateria(AMateria*) override;
 	AMateria* createMateria(std::string const & type) override;
 private:

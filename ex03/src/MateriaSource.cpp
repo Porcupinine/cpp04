@@ -16,6 +16,23 @@
 #include "../includes/AMateria.h"
 #include "../includes/Cure.h"
 
+MateriaSource::MateriaSource(const MateriaSource &cp) {
+	for (size_t x = 0; x< k_materiasSize; x++) {
+		if (m_materias[x] != nullptr)
+			m_materias[x] = cp.m_materias[x]->clone();
+	}
+	m_materiasSlot = cp.m_materiasSlot;
+}
+
+MateriaSource &MateriaSource::operator=(const MateriaSource &cp) {
+	for (size_t x = 0; x< k_materiasSize; x++) {
+		if (m_materias[x] != nullptr)
+			m_materias[x] = cp.m_materias[x]->clone();
+	}
+	m_materiasSlot = cp.m_materiasSlot;
+	return *this;
+}
+
 void MateriaSource::learnMateria(AMateria * m) {
 	if (m_materiasSlot == 3) {
 		std::cout << "Can't create more materias!\n";

@@ -48,7 +48,7 @@ void MateriaSource::learnMateria(AMateria * m) {
 }
 
 AMateria *MateriaSource::createMateria(const std::string &type) {
-	for (int i = 0; i < k_materiasSize; ++i) {
+	for (size_t i = 0; i < k_materiasSize; ++i) {
 		if(m_materias[i] != nullptr && m_materias[i]->getType() == type)
 			return m_materias[i]->clone();
 	}
@@ -56,7 +56,7 @@ AMateria *MateriaSource::createMateria(const std::string &type) {
 }
 
 MateriaSource::~MateriaSource() {
-	for(int x = 0; x < k_materiasSize; x++) {
+	for(size_t x = 0; x < k_materiasSize; x++) {
 		delete m_materias[x];
 	}
 }

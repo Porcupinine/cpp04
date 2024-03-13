@@ -32,8 +32,6 @@ HEADER	= includes/AMateria.h includes/Character.h includes/Cure.h \
 SRC	:= src/AMateria.cpp \
        src/Ice.cpp \
        src/Cure.cpp \
-       src/ICharacter.cpp \
-       src/IMateriaSource.cpp \
        src/main.cpp \
        src/Character.cpp \
        src/MateriaSource.cpp \
